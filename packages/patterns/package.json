@@ -1,0 +1,10 @@
+{
+  "name": "@safetynet/patterns",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/ts/index.ts",
+  "types": "src/ts/index.ts",
+  "scripts": {
+    "test": "vitest run"
+  }
+}
