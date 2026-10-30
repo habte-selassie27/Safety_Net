@@ -1,0 +1,97 @@
+# Verdict stability
+
+Snapshot: 2026-10-28 · Mode: in-process simulator · Contract: `contracts/safetynet.py`
+
+This report measures how stable the canonical verdict is when evidence and
+validator outputs are perturbed. It is the ANL-001/002 deliverable and the
+evidence behind the `≥ 90 at medium noise` quality target in `AGENTS.md`.
+
+## Method
+
+`snet tighten` runs the reference scenario
+`test/fixtures/scenarios/medical-advice-violation.yaml` repeatedly. Each sample:
+
+1. Applies one deterministic evidence perturbation to the claim or the first
+   evidence item: whitespace/case changes, a truncated quote, or a numeric
+   rewrite (`4000mg` → `4,000 mg`).
+2. Selects a deterministic set of non-leader validators that return a different
+   clause finding (`COMPLIANT` instead of `VIOLATED`). The number of divergent
+   validators grows with the `--noise` level.
+3. Adds deterministic output noise (`whitespace`/`case` perturbations) to mocked
+   LLM responses to exercise canonicalization.
+4. Runs the full leader/validator/appeal flow and compares the accepted verdict
+   with the clean baseline.
+
+The reported metrics are:
+
+| Metric | Definition |
+|---|---|
+| Stability | Share of samples whose accepted canonical verdict equals the baseline |
+| False-disagree | `100 - stability`; the accepted verdict differs or consensus fails |
+| False-agree | Share of samples where a semantically flipped leader is accepted as the flipped verdict despite a majority of honest validators disagreeing |
+| Weakest area | The canonical field that diverges most often (`verdict`, `severity`, `confidence`, `clauses`) |
+
+The canonical object is only:
+
+```json
+{"verdict":"POLICY_VIOLATION","severity":"SERIOUS","confidence":"HIGH","clauses":["C1"]}
+```
+
+## Results
+
+### Medium noise (quality target)
+
+```text
+$ snet tighten --samples 200 --seed 1 --noise medium
+stability 100/100
+false-disagree 0%
+false-agree 0%
+weakest area: none
+```
+
+Medium noise selects 1–2 divergent non-leader validators. The leader plus the
+remaining honest validators still form a majority, so the accepted verdict is
+the baseline verdict in every sample.
+
+### High noise (stress case)
+
+```text
+$ snet tighten --samples 200 --seed 1 --noise high
+stability 64/100
+false-disagree 36%
+false-agree 0%
+weakest area: verdict
+```
+
+High noise selects 2–3 divergent non-leader validators. Some samples fail to
+reach a majority in round 1 and enter the larger appeal round; leader election in
+that round can select a validator with the divergent view, which flips the
+accepted verdict. That is exactly the failure mode the appeal path exists for,
+but it is also a warning: a 3/4 split on a binary clause is not a stable public
+record.
+
+The false-agree result is 0% in both runs: when the leader is flipped to
+`COMPLIANT` and the validators are honest, validators reject the leader.
+
+## Reproduce
+
+```bash
+./scripts/snet tighten --samples 200 --seed 1 --noise medium
+./scripts/snet tighten --samples 200 --seed 1 --noise high --report md
+./scripts/snet tighten --samples 200 --seed 1 --noise high --report json
+```
+
+The same seed and sample count reproduce the same report.
+
+## Limitations and next steps
+
+- This is a **simulator** measurement with mocked LLM/web calls. It measures the
+  equivalence and aggregation design, not a particular model's behavior.
+- Network-mode stability, recorded cassettes, and real model outputs are required
+  before a prompt change ships (AGENTS.md §16.7, §36.8).
+- A high-noise flip indicates an ambiguous clause or a genuinely contested
+  verdict. Record the case in `test/fixtures/disagreements/` before changing the
+  prompt or aggregation table.
+- Do not widen the verdict comparison or loosen the equivalence rule to improve
+  this score. The correct response is a clearer clause, a narrower citation set,
+  or a deterministic floor (AGENTS.md §32.10).
