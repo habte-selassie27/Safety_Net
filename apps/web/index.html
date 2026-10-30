@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -17,20 +17,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/og-default.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#05090a" />
     <script>
       (function () {
         try {
           var stored = localStorage.getItem("snet-theme");
-          var prefersDark =
-            window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches;
           var theme = stored === "light" || stored === "dark"
             ? stored
-            : prefersDark
-              ? "dark"
-              : "light";
+            : "dark";
           document.documentElement.setAttribute("data-theme", theme);
           document.documentElement.style.colorScheme = theme;
         } catch (e) {}

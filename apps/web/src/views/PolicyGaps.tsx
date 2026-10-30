@@ -1,3 +1,5 @@
+import { Button } from "../components/Button";
+import { Card } from "../components/Card";
 import { EmptyState } from "../components/EmptyState";
 import { SyntheticBadge } from "../components/SyntheticBadge";
 import ui from "../components/ui.module.css";
@@ -31,9 +33,9 @@ export function PolicyGaps() {
           </p>
         </div>
         {groups.length > 0 ? (
-          <button
+          <Button
             type="button"
-            className={`${ui.button} ${ui.buttonSecondary}`}
+            variant="secondary"
             data-testid="gap-export"
             onClick={() =>
               downloadText(
@@ -44,7 +46,7 @@ export function PolicyGaps() {
             }
           >
             Export markdown
-          </button>
+          </Button>
         ) : null}
       </div>
 
@@ -83,9 +85,8 @@ export function PolicyGaps() {
 
           <section className={ui.stack}>
             {groups.map((group) => (
-              <article
+              <Card
                 key={`${group.system_id}-${group.clause.id}`}
-                className={ui.card}
                 data-testid="gap-group"
               >
                 <div className={ui.rowBetween}>
@@ -128,7 +129,7 @@ export function PolicyGaps() {
                   provider's intent. The clause did not cover the harm that
                   occurred.
                 </p>
-              </article>
+              </Card>
             ))}
           </section>
         </>

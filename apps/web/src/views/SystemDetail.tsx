@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { ClauseCard } from "../components/ClauseCard";
+import { Button } from "../components/Button";
 import { EmptyState } from "../components/EmptyState";
 import { SeverityChips } from "../components/SeverityChips";
 import { StatCard } from "../components/StatCard";
@@ -132,13 +133,13 @@ export function SystemDetail() {
             MEDIUM and the UI flags the record.
           </p>
           <p style={{ marginTop: 8 }}>
-            <button
+            <Button
               type="button"
-              className={`${ui.button} ${ui.buttonSmall}`}
+              size="sm"
               onClick={claim}
             >
               Claim this system (demo)
-            </button>
+            </Button>
           </p>
           {message ? (
             <p className={ui.noticeOk} style={{ marginTop: 8 }}>

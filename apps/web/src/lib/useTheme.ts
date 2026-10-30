@@ -3,17 +3,14 @@ import { useEffect, useState } from "react";
 export type Theme = "light" | "dark";
 
 export function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
+  if (typeof window === "undefined") return "dark";
   try {
     const stored = window.localStorage.getItem("snet-theme");
     if (stored === "light" || stored === "dark") return stored;
   } catch {
     // ignore
   }
-  return typeof window.matchMedia === "function" &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  return "dark";
 }
 
 export function applyTheme(theme: Theme): void {

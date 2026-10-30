@@ -1,3 +1,4 @@
+import { CardLink } from "../components/Card";
 import { EmptyState } from "../components/EmptyState";
 import { Skeleton } from "../components/Skeleton";
 import { ErrorState } from "../components/ErrorState";
@@ -75,12 +76,11 @@ export function Systems() {
               (policy) => policy.version === system.current_policy,
             );
             return (
-              <Link
+              <CardLink
                 key={system.system_id}
                 to={`/systems/${system.system_id}`}
-                className={ui.cardLink}
               >
-                <article
+                <div
                   className={ui.card}
                   style={{ height: "100%" }}
                   data-testid="system-row"
@@ -132,8 +132,8 @@ export function Systems() {
                       ))}
                     </div>
                   ) : null}
-                </article>
-              </Link>
+                </div>
+              </CardLink>
             );
           })}
         </div>

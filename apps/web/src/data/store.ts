@@ -29,7 +29,6 @@ import {
   SYSTEMS,
 } from "./seed";
 import type {
-  Confidence,
   DemoState,
   EvidenceManifestView,
   IncidentView,
@@ -37,8 +36,6 @@ import type {
   PolicyView,
   ReporterStatsView,
   ResponseView,
-  SafetyNetVerdict,
-  Severity,
   SystemView,
   VerdictRecord,
 } from "./types";

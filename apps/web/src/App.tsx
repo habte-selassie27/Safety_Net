@@ -51,11 +51,11 @@ function useIsDesktop(): boolean {
   const [desktop, setDesktop] = useState(() =>
     typeof window === "undefined" || typeof window.matchMedia !== "function"
       ? true
-      : window.matchMedia("(min-width: 768px)").matches,
+      : window.matchMedia("(min-width: 1024px)").matches,
   );
   useEffect(() => {
     if (typeof window.matchMedia !== "function") return;
-    const query = window.matchMedia("(min-width: 768px)");
+    const query = window.matchMedia("(min-width: 1024px)");
     const update = () => setDesktop(query.matches);
     update();
     query.addEventListener?.("change", update);
@@ -182,8 +182,25 @@ export default function App() {
 
         <header className={ui.header}>
           <Link className={ui.brand} to="/">
-            <span className={ui.brandMark}>SafetyNet</span>
-            <span className={ui.brandSub}>Public AI incident record</span>
+            <span className={ui.brandLogo} aria-hidden="true">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 2.5 20 6v6.2c0 4.6-3.4 8.1-8 9.3-4.6-1.2-8-4.7-8-9.3V6l8-3.5Z" />
+                <path d="m8.5 12 2.3 2.3 4.7-4.8" />
+              </svg>
+            </span>
+            <span className={ui.brandText}>
+              <span className={ui.brandMark}>SafetyNet</span>
+              <span className={ui.brandSub}>Public AI incident record</span>
+            </span>
           </Link>
           {isDesktop ? (
             <nav
@@ -215,7 +232,7 @@ export default function App() {
             <ThemeToggle />
             {isDesktop ? (
               <Link className={ui.button} to="/report">
-                Report an incident
+                Report an incident <span aria-hidden="true">→</span>
               </Link>
             ) : (
               <button
@@ -285,34 +302,76 @@ export default function App() {
         </main>
 
         <footer className={ui.footer} data-testid="footer">
-          <span>SafetyNet · The public record of AI harm</span>
-          <span>
-            <Link to="/incidents">Incidents</Link> ·{" "}
-            <Link to="/systems">Systems</Link> ·{" "}
-            <Link to="/policy-gaps">Policy gaps</Link> ·{" "}
-            <Link to="/data">Data</Link> ·{" "}
-            <Link to="/about">About</Link> ·{" "}
-            <Link to="/provider">Provider console</Link> ·{" "}
-            <a href="https://github.com/habte-selassie27/safetynet" target="_blank" rel="noreferrer">GitHub</a> ·{" "}
-            <a href="/docs" target="_blank" rel="noreferrer">Docs</a>
-          </span>
-          <span>
-            Network {NETWORK} · chain {CHAIN_ID} · contract{" "}
-            <span className={ui.mono} title={SAFETYNET_ADDRESS}>
-              {shortAddress(SAFETYNET_ADDRESS)}
+          <div className={ui.footerGrid}>
+            <div className={ui.footerBrand}>
+              <Link className={ui.brand} to="/">
+                <span className={ui.brandLogo} aria-hidden="true">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M12 2.5 20 6v6.2c0 4.6-3.4 8.1-8 9.3-4.6-1.2-8-4.7-8-9.3V6l8-3.5Z" />
+                    <path d="m8.5 12 2.3 2.3 4.7-4.8" />
+                  </svg>
+                </span>
+                <span className={ui.brandText}>
+                  <span className={ui.brandMark}>SafetyNet</span>
+                  <span className={ui.brandSub}>Public AI incident record</span>
+                </span>
+              </Link>
+              <p>
+                The public, neutral, verifiable record of AI harm. Anyone can
+                report. The provider can answer. Independent validators decide
+                against the provider&apos;s own published policy.
+              </p>
+              <SyntheticBadge label="Synthetic demo build" />
+            </div>
+            <div className={ui.footerCol}>
+              <h4>Record</h4>
+              <Link to="/incidents">Incidents</Link>
+              <Link to="/systems">Systems</Link>
+              <Link to="/policy-gaps">Policy gaps</Link>
+              <Link to="/data">Open data</Link>
+            </div>
+            <div className={ui.footerCol}>
+              <h4>Participate</h4>
+              <Link to="/report">Report an incident</Link>
+              <Link to="/provider">Provider console</Link>
+              <Link to="/about">About &amp; trust boundary</Link>
+              <a
+                href="https://github.com/habte-selassie27/safetynet"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+            </div>
+            <div className={ui.footerCol}>
+              <h4>Network</h4>
+              <span>StudioNet · chain {CHAIN_ID}</span>
+              <span className={ui.mono} title={SAFETYNET_ADDRESS}>
+                {shortAddress(SAFETYNET_ADDRESS)}
+              </span>
+              <span>Index updated: demo snapshot</span>
+              <a href="/docs" target="_blank" rel="noreferrer">
+                Docs
+              </a>
+            </div>
+          </div>
+          <div className={ui.footerBottom}>
+            <span>© 2026 SafetyNet · MIT licensed</span>
+            <span data-testid="legal-disclaimer">
+              Policy compliance findings, not legal determinations.{" "}
+              <Link to="/about#trust-boundary">Read the trust boundary</Link>.
             </span>
-            {" · "}Index updated: demo snapshot
-          </span>
-          <span data-testid="legal-disclaimer">
-            Policy compliance findings, not legal determinations.{" "}
-            <Link to="/about#trust-boundary">Read the trust boundary</Link>.
-          </span>
-          <span>
-            <Link to="/about">Trust boundary</Link> ·{" "}
-            <Link to="/data">Open data</Link>
-          </span>
-          <span>SYNTHETIC demo build — no chain writes.</span>
-          <span>Build v0.1.0 · {SAFETYNET_ADDRESS.slice(0, 8)} · {new Date().toISOString().slice(0, 10)}</span>
+            <span>SYNTHETIC demo build — no chain writes.</span>
+          </div>
         </footer>
       </div>
     </WalletProvider>

@@ -1,3 +1,4 @@
+import { Card } from "../components/Card";
 import { NetworkBadge } from "../components/NetworkBadge";
 import { SeverityMeter } from "../components/SeverityMeter";
 import { SyntheticBadge } from "../components/SyntheticBadge";
@@ -39,7 +40,7 @@ export function EmbedSystem({ systemId }: { systemId: string }) {
 
   return (
     <div className={ui.embedShell} data-testid="page-embed">
-      <article className={ui.card}>
+      <Card>
         <div className={ui.rowBetween}>
           <div className={ui.row}>
             <SyntheticBadge />
@@ -138,7 +139,7 @@ export function EmbedSystem({ systemId }: { systemId: string }) {
           Policy compliance findings, not legal determinations. SYNTHETIC demo
           data.
         </p>
-      </article>
+      </Card>
     </div>
   );
 }

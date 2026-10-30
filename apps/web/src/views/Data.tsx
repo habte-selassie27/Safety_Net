@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { Card } from "../components/Card";
 import { EmptyState } from "../components/EmptyState";
 import { SyntheticBadge } from "../components/SyntheticBadge";
 import { VerdictBadge } from "../components/VerdictBadge";
@@ -249,10 +250,10 @@ export function Data() {
         </p>
         <div className={ui.stack}>
           {SNIPPETS.map((snippet) => (
-            <article key={snippet.title} className={ui.card}>
+            <Card key={snippet.title}>
               <h3>{snippet.title}</h3>
               <pre style={{ marginTop: 10 }}>{snippet.code}</pre>
-            </article>
+            </Card>
           ))}
         </div>
       </section>

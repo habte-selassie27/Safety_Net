@@ -1,3 +1,4 @@
+import { Card } from "../components/Card";
 import { SyntheticBadge } from "../components/SyntheticBadge";
 import { VerdictBadge } from "../components/VerdictBadge";
 import ui from "../components/ui.module.css";
@@ -62,7 +63,7 @@ export function About() {
         </p>
       </div>
 
-      <section className={ui.card}>
+      <Card>
         <h2>Why the provider's own policy is the standard</h2>
         <p style={{ marginTop: 10 }}>
           Most incident processes ask whether a system broke the law or whether
@@ -85,7 +86,7 @@ export function About() {
           {gaps.length} gap group{gaps.length === 1 ? "" : "s"} in this
           synthetic demo record.
         </p>
-      </section>
+      </Card>
 
       <section>
         <h2>What a verdict means — and does not mean</h2>
@@ -158,7 +159,7 @@ export function About() {
         </div>
       </section>
 
-      <section className={ui.card}>
+      <Card>
         <h2>How adjudication works</h2>
         <ol style={{ marginTop: 10, paddingLeft: 20 }}>
           <li>
@@ -185,7 +186,7 @@ export function About() {
           If validators do not converge, no verdict is stored. That is a valid,
           intentional outcome: the system fails closed rather than guessing.
         </p>
-      </section>
+      </Card>
 
       <section data-testid="synthetic-explainer">
         <h2>What this demo is</h2>

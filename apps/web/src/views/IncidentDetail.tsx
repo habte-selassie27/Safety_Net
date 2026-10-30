@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import { Button } from "../components/Button";
 import { ClauseCard } from "../components/ClauseCard";
 import { ConfidenceLabel } from "../components/ConfidenceLabel";
 import { EmptyState } from "../components/EmptyState";
@@ -341,9 +342,9 @@ export function IncidentDetail() {
           </p>
           {incident.status === "DECIDED" ? (
             <div style={{ marginTop: 12 }}>
-              <button
+              <Button
                 type="button"
-                className={`${ui.button} ${ui.buttonSecondary}`}
+                variant="secondary"
                 data-testid="finalize-button"
                 disabled={pending !== null}
                 onClick={() =>
@@ -357,7 +358,7 @@ export function IncidentDetail() {
                   : isChainMode()
                     ? "Finalize record"
                     : "Finalize record (demo)"}
-              </button>
+              </Button>
               <p className={ui.hint} style={{ marginTop: 8 }}>
                 Permissionless. Marks the record final after the appeal window;
                 it never changes the verdict.
@@ -374,9 +375,8 @@ export function IncidentDetail() {
           Adjudication is permissionless and runs after the response window. No
           verdict is stored until validators converge.
           <div style={{ marginTop: 12 }}>
-            <button
+            <Button
               type="button"
-              className={ui.button}
               data-testid="adjudicate-button"
               disabled={pending !== null}
               onClick={() =>
@@ -390,7 +390,7 @@ export function IncidentDetail() {
                 : isChainMode()
                   ? "Run adjudication"
                   : "Run adjudication (demo)"}
-            </button>
+            </Button>
             <p className={ui.hint} style={{ marginTop: 8 }}>
               Permissionless. Validators judge the pinned evidence against the
               pinned policy version. No verdict is stored unless they converge.
