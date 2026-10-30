@@ -1,0 +1,27 @@
+.root {
+  display: block;
+}
+
+.line {
+  height: 1rem;
+  background: var(--sn-surface-2);
+  border-radius: var(--sn-radius-sm);
+  margin-bottom: 0.5rem;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line {
+    animation: none;
+  }
+}
