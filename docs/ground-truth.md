@@ -1,0 +1,21 @@
+# GenLayer Ground Truth Snapshot
+- Snapshot date: 2026-10-27
+- genlayer CLI version: 0.39.2
+- py-genlayer / SDK version (contract header): py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6
+- genlayer-js version: 1.1.8
+- genlayer-test (gltest) version: 0.29.2
+- genvm-linter version: not installed as npm; cache present
+- Networks:
+  - localnet → Genlayer Localnet (Docker)
+  - studionet → Genlayer Studio Network, chainId 61999, rpc https://studio.genlayer.com/api
+  - testnet-asimov → Genlayer Asimov Testnet, chainId 4221, rpc https://rpc-asimov.genlayer.com
+  - testnet-bradbury → Genlayer Bradbury Testnet, chainId 4221, rpc https://rpc-bradbury.genlayer.com
+- Contract header format: `# { "Depends": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6" }`
+- Equivalence principle APIs: `gl.eq_principle.strict_eq(fn)` [VERIFY signature]
+- Non-det APIs: `gl.nondet.exec_prompt(prompt, response_format=...)`, `gl.nondet.web.render(url, mode=...)` [VERIFY]
+- Web fetch render modes: `text`, `html` [VERIFY]
+- Storage types: `TreeMap`, `DynArray`, sized ints `u256`/`i256`, `Address`, `@allow_storage` + `@dataclass`
+- Transaction statuses: PENDING, PROPOSING, COMMITTING, REVEALING, ACCEPTED, FINALIZED, UNDETERMINED, CANCELED [VERIFY exact names]
+- Caller address: `gl.message.sender_address`
+- Timestamp: `gl.block.timestamp` [VERIFY]
+- Known breaking changes: none recorded yet.

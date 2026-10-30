@@ -1,0 +1,38 @@
+---
+title: Redaction policy
+---
+
+# Redaction policy
+
+## Principle
+
+SafetyNet never deletes on-chain records. Redaction is a display-layer
+concept: the web app and exports can hide display text, but the underlying
+record remains public and queryable directly from the chain.
+
+## What can be redacted
+
+- Display of a reporter's or provider's address (shortened form is the
+  default).
+- Display of an incident's claim text, if it contains personal data that
+  slipped through the filing warnings.
+
+## What cannot be redacted
+
+- The evidence hash, the policy hash, the verdict, and the clause citations.
+- The existence of the incident or its timestamp.
+- Any data read directly from the chain by a third party.
+
+## Process
+
+1. A provider or reporter opens a redaction request through the documented
+   process (a public issue template or a moderation list in the repository).
+2. Maintainers review and, if approved, apply a display-layer flag.
+3. The change is recorded in `docs/security/` as a public correction notice
+   when it affects verdicts already issued.
+
+## Harassment
+
+Incidents must be about system behavior, not individuals. The filing form
+rejects claim text containing handles, emails, or phone numbers unless the
+user explicitly confirms necessity and accepts a warning.
