@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# build
+dist/
+build/
+*.tsbuildinfo
+
+# safetynet cache
+.snet/
+!deployments/.gitkeep
+
+# env
+.env
+.env.*
+!.env.example
+
+# os
+.DS_Store
+Thumbs.db
+
+# agent scratch
+.tmp/
+.aider*
+
+# test artifacts
+test-results/
+.tmp_*
