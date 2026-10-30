@@ -1,0 +1,104 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--sn-accent);
+  background: var(--sn-accent);
+  color: var(--sn-accent-contrast);
+  padding: 0.625rem 1rem;
+  border-radius: var(--sn-radius-sm);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 44px;
+}
+
+.root:hover:not(:disabled) {
+  background: var(--sn-accent-hover);
+  border-color: var(--sn-accent-hover);
+}
+
+.root:active:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--sn-focus);
+  outline-offset: 2px;
+}
+
+.root:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--sn-text);
+  border-color: var(--sn-border-strong);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--sn-surface-2);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--sn-text);
+  border-color: transparent;
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--sn-surface-2);
+}
+
+.link {
+  background: transparent;
+  color: var(--sn-accent);
+  border-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  min-height: auto;
+  padding: 0.25rem 0.5rem;
+}
+
+.sm {
+  padding: 0.375rem 0.75rem;
+  min-height: 36px;
+  font-size: 0.875rem;
+}
+
+.loading {
+  cursor: progress;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}
