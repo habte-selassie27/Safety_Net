@@ -1,0 +1,14 @@
+{
+  "count": 0,
+  "findings": [],
+  "ok": true,
+  "ruleCounts": {},
+  "summary": {
+    "errors": 0,
+    "files": 1,
+    "info": 0,
+    "rules": 38,
+    "suppressed": 0,
+    "warnings": 0
+  }
+}

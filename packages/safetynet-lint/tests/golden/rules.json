@@ -1,0 +1,192 @@
+[
+  {
+    "id": "SI000",
+    "severity": "error",
+    "category": "style"
+  },
+  {
+    "id": "SI001",
+    "severity": "error",
+    "category": "compat"
+  },
+  {
+    "id": "SI002",
+    "severity": "error",
+    "category": "compat"
+  },
+  {
+    "id": "SI003",
+    "severity": "warn",
+    "category": "compat"
+  },
+  {
+    "id": "SI010",
+    "severity": "error",
+    "category": "compat"
+  },
+  {
+    "id": "SI012",
+    "severity": "error",
+    "category": "determinism"
+  },
+  {
+    "id": "SI013",
+    "severity": "error",
+    "category": "determinism"
+  },
+  {
+    "id": "SI014",
+    "severity": "warn",
+    "category": "policy"
+  },
+  {
+    "id": "SI015",
+    "severity": "error",
+    "category": "determinism"
+  },
+  {
+    "id": "SI016",
+    "severity": "error",
+    "category": "determinism"
+  },
+  {
+    "id": "SI017",
+    "severity": "error",
+    "category": "fairness"
+  },
+  {
+    "id": "SI018",
+    "severity": "warn",
+    "category": "determinism"
+  },
+  {
+    "id": "SI020",
+    "severity": "error",
+    "category": "policy"
+  },
+  {
+    "id": "SI021",
+    "severity": "error",
+    "category": "injection"
+  },
+  {
+    "id": "SI022",
+    "severity": "error",
+    "category": "evidence"
+  },
+  {
+    "id": "SI023",
+    "severity": "error",
+    "category": "evidence"
+  },
+  {
+    "id": "SI024",
+    "severity": "error",
+    "category": "evidence"
+  },
+  {
+    "id": "SI025",
+    "severity": "warn",
+    "category": "evidence"
+  },
+  {
+    "id": "SI026",
+    "severity": "error",
+    "category": "injection"
+  },
+  {
+    "id": "SI027",
+    "severity": "error",
+    "category": "policy"
+  },
+  {
+    "id": "SI030",
+    "severity": "warn",
+    "category": "determinism"
+  },
+  {
+    "id": "SI031",
+    "severity": "error",
+    "category": "determinism"
+  },
+  {
+    "id": "SI032",
+    "severity": "warn",
+    "category": "determinism"
+  },
+  {
+    "id": "SI033",
+    "severity": "warn",
+    "category": "injection"
+  },
+  {
+    "id": "SI040",
+    "severity": "error",
+    "category": "fairness"
+  },
+  {
+    "id": "SI041",
+    "severity": "warn",
+    "category": "fairness"
+  },
+  {
+    "id": "SI042",
+    "severity": "error",
+    "category": "permanence"
+  },
+  {
+    "id": "SI043",
+    "severity": "error",
+    "category": "fairness"
+  },
+  {
+    "id": "SI044",
+    "severity": "error",
+    "category": "permanence"
+  },
+  {
+    "id": "SI045",
+    "severity": "error",
+    "category": "permanence"
+  },
+  {
+    "id": "SI050",
+    "severity": "error",
+    "category": "determinism"
+  },
+  {
+    "id": "SI051",
+    "severity": "error",
+    "category": "determinism"
+  },
+  {
+    "id": "SI052",
+    "severity": "warn",
+    "category": "determinism"
+  },
+  {
+    "id": "SI053",
+    "severity": "warn",
+    "category": "determinism"
+  },
+  {
+    "id": "SI054",
+    "severity": "warn",
+    "category": "determinism"
+  },
+  {
+    "id": "SI060",
+    "severity": "warn",
+    "category": "determinism"
+  },
+  {
+    "id": "SI090",
+    "severity": "info",
+    "category": "style"
+  },
+  {
+    "id": "SI099",
+    "severity": "info",
+    "category": "style"
+  }
+]
