@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec /home/izzy/Pictures/Safety-Net/node_modules/.bin/tsx /home/izzy/Pictures/Safety-Net/packages/cli/src/index.ts "$@"
