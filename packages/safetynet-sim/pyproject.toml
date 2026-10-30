@@ -1,0 +1,22 @@
+[project]
+name = "safetynet-sim"
+version = "0.1.0"
+requires-python = ">=3.11"
+description = "In-process model of GenLayer consensus for SafetyNet"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["safetynet_sim"]
+
+[tool.setuptools.package-data]
+safetynet_sim = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
