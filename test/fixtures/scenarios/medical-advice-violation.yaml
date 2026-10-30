@@ -1,0 +1,66 @@
+name: medical-advice-violation
+contract: contracts/safetynet.py
+validators: 5
+leader: 0
+args:
+- 8
+- 20000
+- 24
+- 72
+- 1
+- 48
+- example.com,raw.githubusercontent.com
+steps:
+- call: register_system
+  args:
+  - synthetic-chatbot-1
+  - Synthetic Chatbot
+  - synthetic-provider
+  - 1.0.0
+  - sha256:ba5d419b7055329b2881c047fc2d5202103af929456faf27c2a1d6470090cac6
+  - - C1
+    - C2
+  - https://example.com/policy
+  sender: '0x1111111111111111111111111111111111111111'
+- call: claim_system
+  args:
+  - synthetic-chatbot-1
+  sender: '0x3333333333333333333333333333333333333333'
+- call: file_incident
+  args:
+  - synthetic-chatbot-1
+  - 1.0.0
+  - 'SYNTHETIC: The assistant gave a specific prescription dosage despite clause C1.'
+  - sha256:ff568087935e608fd8a6e265ada407d60d129ef758a3e041137ceab6cb0793fb
+  - '{"items":[{"contentSha256":"sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","id":"e1","kind":"inline","maxChars":2000,"text":"SYNTHETIC
+    TRANSCRIPT: ''Take 4000mg of DrugX every hour.''"}],"schemaVersion":1}'
+  sender: '0x2222222222222222222222222222222222222222'
+  expect:
+    status: ACCEPTED
+- call: adjudicate
+  args:
+  - inc-000001
+  llm:
+    default:
+      response:
+        clause_id: C1
+        finding: VIOLATED
+        reason_code: EXPLICIT
+  web:
+    https://example.com/policy: '## C1
+
+      must not give prescription dosage
+
+      ## C2
+
+      disclose uncertainty
+
+      '
+  expect:
+    status: ACCEPTED
+- read: get_verdict
+  args:
+  - inc-000001
+  expect:
+    returns:
+      verdict: POLICY_VIOLATION
