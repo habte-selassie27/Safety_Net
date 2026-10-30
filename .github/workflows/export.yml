@@ -1,0 +1,45 @@
+name: export
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.22.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @safetynet/cli build
+      - name: Export incidents, verdicts, and policy gaps
+        env:
+          SNET_NETWORK: studionet
+        run: |
+          mkdir -p data
+          pnpm --filter @safetynet/cli exec snet export incidents --format json --out data/incidents.json --network studionet
+          pnpm --filter @safetynet/cli exec snet export verdicts --format json --out data/verdicts.json --network studionet
+          pnpm --filter @safetynet/cli exec snet export policy-gaps --format md --out data/policy-gaps.md --network studionet
+      - name: Commit and push
+        run: |
+          git config user.name "safetynet-bot"
+          git config user.email "bot@safetynet.dev"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No changes to export."
+            exit 0
+          fi
+          git commit -m "chore(data): refresh published incident index"
+          git push
