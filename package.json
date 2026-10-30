@@ -1,0 +1,30 @@
+{
+  "name": "safetynet",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The public, neutral, verifiable record of AI harm.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.22.0",
+  "scripts": {
+    "lint": "biome check .",
+    "typecheck": "pnpm --filter @safetynet/core build && pnpm -r typecheck",
+    "test": "vitest run",
+    "build": "pnpm -r build",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@changesets/cli": "2.27.9",
+    "@playwright/test": "^1.64.1",
+    "cac": "^7.1.0",
+    "happy-dom": "^21.0.4",
+    "lighthouse": "^13.6.0",
+    "picocolors": "^1.1.1",
+    "tsx": "^4.23.15",
+    "typescript": "5.6.3",
+    "vitest": "2.1.4"
+  }
+}
