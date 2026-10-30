@@ -1,0 +1,49 @@
+{
+  "chainId": "61999",
+  "contracts": {
+    "SafetyNet": {
+      "address": "0x7E2D9405CfC642F3abda3048cc2F265f7586317e",
+      "deployedAt": "2026-10-28T15:56:19Z",
+      "deployer": "0x5B3661C576c7001e6d6279C67F3779705d334c89",
+      "domainConfig": {
+        "maxEvidenceItems": 8,
+        "maxEvidenceBytes": 20000,
+        "maxPolicyClauses": 24,
+        "appealWindowHours": 72,
+        "maxAppeals": 1,
+        "minProviderResponseHours": 48
+      },
+      "evidenceAllowlistHash": "sha256:4390e0397e0204f4a0d82c02b5c4f273d9e7244e3ffff9bfd69d82cdae7f5dec",
+      "history": [
+        {
+          "address": "0x98EfDF456789A9227948E08A95a26d1599Ac91dB",
+          "deployedAt": "2026-10-28T14:10:02Z",
+          "sourceHash": "sha256:d8be9e1d8cc514e7b74ce66a09a6174e81987bd3cb900408187c1a729f01f984",
+          "tag": "v0.1.0-dep021",
+          "txHash": "0xfff493c2d8c0812885c67035456509c321d46c3d8a9aab105a91b7f365911b6a"
+        },
+        {
+          "address": "0x1472fb07454Fca1aC30081aAad659b7adB4A754D",
+          "deployedAt": "2026-10-27T00:00:00Z",
+          "sourceHash": "sha256:7ac7f81a6be6bf9f3447c87f6ab024b923f2c246b92492dd308da869f352d69c",
+          "tag": "v0.1.0-m0",
+          "txHash": "0xfa07e6d3f9d297425c9545a52ddfb228a2a44c560153e05547b5be19929b9d8d"
+        }
+      ],
+      "normalizer": 1,
+      "safetyNetVersion": "0.1.0",
+      "schemaHash": "sha256:735c02b400212f6730f294535525fcc496cc3b2e5996537a8d9140a490bc1095",
+      "sdk": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+      "seeded": false,
+      "sourceHash": "sha256:f3927dbcc4cb108d893c45f57b7ece326014636b320f6680a1a0484bc637d5df",
+      "sourcePath": "contracts/safetynet.py",
+      "status": "ACCEPTED",
+      "tag": "v0.1.0-seed-001",
+      "txHash": "0x80e030b7a1a34607c2f20cb7aedac17c8a2fcc868fc22cb5bc8a1c903e1c10d2",
+      "updatedAt": "2026-10-28T15:57:55.393Z"
+    }
+  },
+  "network": "studionet",
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-28T15:57:55.394Z"
+}

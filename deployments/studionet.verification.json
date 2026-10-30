@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "network": "studionet",
+  "chainId": "61999",
+  "contract": "SafetyNet",
+  "address": "0x7E2D9405CfC642F3abda3048cc2F265f7586317e",
+  "verifiedAt": "2026-10-28T15:57:55.396Z",
+  "normalizer": 1,
+  "levels": [
+    {
+      "id": "L0",
+      "title": "registry",
+      "status": "pass",
+      "detail": "address 0x7E2D9405CfC642F3abda3048cc2F265f7586317e recorded (tx 0x80e030b7…)"
+    },
+    {
+      "id": "L1",
+      "title": "schema",
+      "status": "pass",
+      "detail": "19 methods match (schema sha256:735c02b400212f6730f294535525fcc496cc3b2e5996537a8d9140a490bc1095)",
+      "hashes": {
+        "local": "sha256:735c02b400212f6730f294535525fcc496cc3b2e5996537a8d9140a490bc1095",
+        "chain": "sha256:735c02b400212f6730f294535525fcc496cc3b2e5996537a8d9140a490bc1095"
+      }
+    },
+    {
+      "id": "L2",
+      "title": "source",
+      "status": "pass",
+      "detail": "on-chain code hash == local (sha256:f3927dbcc4cb108d893c45f57b7ece326014636b320f6680a1a0484bc637d5df)",
+      "hashes": {
+        "local": "sha256:f3927dbcc4cb108d893c45f57b7ece326014636b320f6680a1a0484bc637d5df",
+        "chain": "sha256:f3927dbcc4cb108d893c45f57b7ece326014636b320f6680a1a0484bc637d5df"
+      }
+    },
+    {
+      "id": "L3",
+      "title": "probes",
+      "status": "pass",
+      "detail": "5/5 read probes passed",
+      "probes": [
+        {
+          "name": "config-readable",
+          "method": "get_config",
+          "args": [],
+          "ok": true,
+          "expected": "object",
+          "observed": "object(7 keys)"
+        },
+        {
+          "name": "incident-counter",
+          "method": "get_incident_count",
+          "args": [],
+          "ok": true,
+          "expected": "integer",
+          "observed": "number: 0"
+        },
+        {
+          "name": "incident-view",
+          "method": "get_incident",
+          "args": ["inc-000001"],
+          "ok": true,
+          "expected": "objectOrEmpty",
+          "observed": "empty"
+        },
+        {
+          "name": "verdict-view",
+          "method": "get_verdict",
+          "args": ["inc-000001"],
+          "ok": true,
+          "expected": "objectOrEmpty",
+          "observed": "empty"
+        },
+        {
+          "name": "unknown-verdict-is-empty",
+          "method": "get_verdict",
+          "args": ["inc-does-not-exist"],
+          "ok": true,
+          "expected": "empty",
+          "observed": "empty"
+        }
+      ]
+    },
+    {
+      "id": "L4",
+      "title": "config",
+      "status": "pass",
+      "detail": "domain config matches registry; allowlist sha256:4390e0397e0204f4a0d82c02b5c4f273d9e7244e3ffff9bfd69d82cdae7f5dec",
+      "config": {
+        "maxEvidenceItems": 8,
+        "maxEvidenceBytes": 20000,
+        "maxPolicyClauses": 24,
+        "appealWindowHours": 72,
+        "maxAppeals": 1,
+        "minProviderResponseHours": 48,
+        "evidence_allowlist": "example.com,raw.githubusercontent.com"
+      }
+    }
+  ],
+  "result": "VERIFIED",
+  "ok": true,
+  "sourceHash": "sha256:f3927dbcc4cb108d893c45f57b7ece326014636b320f6680a1a0484bc637d5df",
+  "schemaHash": "sha256:735c02b400212f6730f294535525fcc496cc3b2e5996537a8d9140a490bc1095",
+  "evidenceAllowlistHash": "sha256:4390e0397e0204f4a0d82c02b5c4f273d9e7244e3ffff9bfd69d82cdae7f5dec",
+  "registryHash": "sha256:510f493792789aa53a4131087b2a43c7435b5c2ce21c90cdc9ca1d8d8010d334"
+}
