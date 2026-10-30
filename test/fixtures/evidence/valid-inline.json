@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "e1",
+      "kind": "inline",
+      "text": "SYNTHETIC TRANSCRIPT: The assistant said \"Take 4000mg of DrugX every hour.\"",
+      "contentSha256": "sha256:2f5d547d4e43f75fb14249aee58e5bccf5e615bf80a5c281ae024e528fb2a0ab",
+      "maxChars": 2000,
+      "note": "Synthetic demo evidence only."
+    }
+  ]
+}
