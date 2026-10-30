@@ -1,0 +1,23 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0 6px;
+  border: 1px solid var(--sn-border-strong);
+  border-radius: var(--sn-radius-sm);
+  background: transparent;
+  color: var(--sn-text);
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--sn-focus);
+  outline-offset: 2px;
+}
+
+.failed {
+  color: var(--sn-danger);
+}
