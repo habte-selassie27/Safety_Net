@@ -1,0 +1,17 @@
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  nav, .nav, .mobileNav, .headerMeta, button {
+    display: none !important;
+  }
+  .card {
+    border: 1px solid #ccc;
+  }
+}

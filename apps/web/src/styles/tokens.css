@@ -1,0 +1,177 @@
+/*
+ * Design tokens (UI.md §6, Appendix A).
+ *
+ * Warm paper + archival blue. Components consume the semantic `--sn-*`
+ * tokens. The legacy unprefixed names below are aliases kept so the existing
+ * component CSS can migrate incrementally without a flag day.
+ */
+:root {
+  color-scheme: light;
+
+  --sn-bg: #faf9f5;
+  --sn-surface: #ffffff;
+  --sn-surface-2: #f3f1ea;
+  --sn-surface-3: #ece9e0;
+  --sn-ink: #15171a;
+  --sn-text: #15171a;
+  --sn-text-secondary: #40454d;
+  --sn-muted: #5f6b7a;
+  --sn-border: #ddd8cc;
+  --sn-border-strong: #b5afa2;
+  --sn-rule: #e7e2d6;
+
+  --sn-accent: #1e4e79;
+  --sn-accent-hover: #163a5a;
+  --sn-accent-soft: #eaf1f8;
+  --sn-accent-contrast: #ffffff;
+  --sn-focus: #2563eb;
+
+  --sn-danger: #b42318;
+  --sn-danger-soft: #fef3f2;
+  --sn-danger-border: #fecdca;
+  --sn-warn: #b54708;
+  --sn-warn-soft: #fffaeb;
+  --sn-warn-border: #fedf89;
+  --sn-ok: #067647;
+  --sn-ok-soft: #ecfdf3;
+  --sn-ok-border: #abefc6;
+  --sn-neutral: #475467;
+  --sn-neutral-soft: #f2f4f7;
+  --sn-neutral-border: #d0d5dd;
+
+  --sn-verdict-violation: var(--sn-danger);
+  --sn-verdict-violation-bg: var(--sn-danger-soft);
+  --sn-verdict-violation-border: var(--sn-danger-border);
+  --sn-verdict-gap: var(--sn-warn);
+  --sn-verdict-gap-bg: var(--sn-warn-soft);
+  --sn-verdict-gap-border: var(--sn-warn-border);
+  --sn-verdict-neutral: var(--sn-neutral);
+  --sn-verdict-neutral-bg: var(--sn-neutral-soft);
+  --sn-verdict-neutral-border: var(--sn-neutral-border);
+  --sn-verdict-dismissed: var(--sn-ok);
+  --sn-verdict-dismissed-bg: var(--sn-ok-soft);
+  --sn-verdict-dismissed-border: var(--sn-ok-border);
+
+  --sn-font-display: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --sn-font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --sn-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --sn-text-xs: 0.75rem;
+  --sn-text-sm: 0.8125rem;
+  --sn-text-base: 1rem;
+  --sn-text-md: 1.0625rem;
+  --sn-text-lg: 1.25rem;
+  --sn-text-xl: 1.5rem;
+  --sn-text-2xl: 1.875rem;
+  --sn-text-3xl: 2.375rem;
+
+  --sn-radius: 10px;
+  --sn-radius-sm: 7px;
+  --sn-shadow: 0 1px 2px rgb(20 30 25 / 5%), 0 8px 24px rgb(20 30 25 / 6%);
+  --sn-max-width: 1080px;
+
+  /* Legacy aliases used by existing components. */
+  --bg: var(--sn-bg);
+  --surface: var(--sn-surface);
+  --surface-2: var(--sn-surface-2);
+  --text: var(--sn-text);
+  --muted: var(--sn-muted);
+  --faint: var(--sn-muted);
+  --border: var(--sn-border);
+  --border-strong: var(--sn-border-strong);
+  --accent: var(--sn-accent);
+  --accent-soft: var(--sn-accent-soft);
+  --danger: var(--sn-danger);
+  --danger-soft: var(--sn-danger-soft);
+  --warn: var(--sn-warn);
+  --warn-soft: var(--sn-warn-soft);
+  --ok: var(--sn-ok);
+  --ok-soft: var(--sn-ok-soft);
+  --gray-soft: var(--sn-neutral-soft);
+  --code-bg: var(--sn-surface-2);
+  --shadow: var(--sn-shadow);
+  --radius: var(--sn-radius);
+  --radius-sm: var(--sn-radius-sm);
+  --sans: var(--sn-font-body);
+  --mono: var(--sn-font-mono);
+  --display: var(--sn-font-display);
+  --max: var(--sn-max-width);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --sn-bg: #0d1117;
+    --sn-surface: #141a22;
+    --sn-surface-2: #1a222c;
+    --sn-surface-3: #202a36;
+    --sn-ink: #f2f4f7;
+    --sn-text: #f2f4f7;
+    --sn-text-secondary: #c9d0da;
+    --sn-muted: #98a2b3;
+    --sn-border: #2a3441;
+    --sn-border-strong: #3d4a5c;
+    --sn-rule: #222c37;
+
+    --sn-accent: #9dc7f2;
+    --sn-accent-hover: #c3ddfa;
+    --sn-accent-soft: #132a3f;
+    --sn-accent-contrast: #0d1117;
+    --sn-focus: #7ab7ff;
+
+    --sn-danger: #fda29b;
+    --sn-danger-soft: #2a1512;
+    --sn-danger-border: #5b2a24;
+    --sn-warn: #fec84b;
+    --sn-warn-soft: #2a1f0b;
+    --sn-warn-border: #5c4712;
+    --sn-ok: #75e0a7;
+    --sn-ok-soft: #0e2519;
+    --sn-ok-border: #1e5138;
+    --sn-neutral: #d0d5dd;
+    --sn-neutral-soft: #1a222c;
+    --sn-neutral-border: #3d4a5c;
+
+    --sn-shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 8px 24px rgb(0 0 0 / 25%);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --sn-bg: #0d1117;
+  --sn-surface: #141a22;
+  --sn-surface-2: #1a222c;
+  --sn-surface-3: #202a36;
+  --sn-ink: #f2f4f7;
+  --sn-text: #f2f4f7;
+  --sn-text-secondary: #c9d0da;
+  --sn-muted: #98a2b3;
+  --sn-border: #2a3441;
+  --sn-border-strong: #3d4a5c;
+  --sn-rule: #222c37;
+
+  --sn-accent: #9dc7f2;
+  --sn-accent-hover: #c3ddfa;
+  --sn-accent-soft: #132a3f;
+  --sn-accent-contrast: #0d1117;
+  --sn-focus: #7ab7ff;
+
+  --sn-danger: #fda29b;
+  --sn-danger-soft: #2a1512;
+  --sn-danger-border: #5b2a24;
+  --sn-warn: #fec84b;
+  --sn-warn-soft: #2a1f0b;
+  --sn-warn-border: #5c4712;
+  --sn-ok: #75e0a7;
+  --sn-ok-soft: #0e2519;
+  --sn-ok-border: #1e5138;
+  --sn-neutral: #d0d5dd;
+  --sn-neutral-soft: #1a222c;
+  --sn-neutral-border: #3d4a5c;
+
+  --sn-shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 8px 24px rgb(0 0 0 / 25%);
+}
