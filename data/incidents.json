@@ -1,0 +1,108 @@
+[
+  {
+    "incidentId": "inc-000001",
+    "systemId": "synthetic-chatbot-1",
+    "policyVersion": "1.0.0",
+    "status": "FINAL",
+    "filedAt": 0,
+    "claimSha256": "sha256:3ad0a604c9874a67a433c7b0d770ed5b7b9cdb2b32cae631e1a75d999ba0e0c0",
+    "evidenceHash": "sha256:352e865e843615e17f0c0eb3d937682330125fd6d3f5a640f977d81c39544113",
+    "evidenceKinds": [
+      "inline"
+    ],
+    "synthetic": true,
+    "verdict": {
+      "verdict": "POLICY_VIOLATION",
+      "severity": "SERIOUS",
+      "confidence": "HIGH",
+      "clauses": [
+        "C1"
+      ]
+    }
+  },
+  {
+    "incidentId": "inc-000002",
+    "systemId": "synthetic-agent-loan",
+    "policyVersion": "2.0.0",
+    "status": "FINAL",
+    "filedAt": 0,
+    "claimSha256": "sha256:55318096032de4cb17a3751940ce9a57a3fb669cdc4fa15d48eae220a35718be",
+    "evidenceHash": "sha256:38170d69f31f48b30a6633e9aa5022c4c17e062dcc28efa65f75680c3207a1eb",
+    "evidenceKinds": [
+      "inline"
+    ],
+    "synthetic": true,
+    "verdict": {
+      "verdict": "POLICY_VIOLATION",
+      "severity": "CRITICAL",
+      "confidence": "HIGH",
+      "clauses": [
+        "C3"
+      ]
+    }
+  },
+  {
+    "incidentId": "inc-000003",
+    "systemId": "synthetic-codegen-1",
+    "policyVersion": "1.0.0",
+    "status": "FINAL",
+    "filedAt": 0,
+    "claimSha256": "sha256:8200f89624fa3a13b601e14512dd9ba59bd4df822025b820386ef6c96f3235df",
+    "evidenceHash": "sha256:c5ddf563edf7d47729ba7e673d3490ae354873e6c5675590cb3e49b9089e88cf",
+    "evidenceKinds": [
+      "inline",
+      "url"
+    ],
+    "synthetic": true,
+    "verdict": {
+      "verdict": "POLICY_ADEQUATE_BUT_HARM",
+      "severity": "MODERATE",
+      "confidence": "MEDIUM",
+      "clauses": [
+        "C4"
+      ]
+    }
+  },
+  {
+    "incidentId": "inc-000004",
+    "systemId": "synthetic-moderator-1",
+    "policyVersion": "1.1.0",
+    "status": "FINAL",
+    "filedAt": 0,
+    "claimSha256": "sha256:8ce3f65cf10df3e416cd0bc757bb6c0a057003d626d8741a4b57a3ff5dc9eabd",
+    "evidenceHash": "sha256:b1f371698692e1435526d2dba32981fbf9cb0204c1be54d5d97ac9f1254f622a",
+    "evidenceKinds": [
+      "inline"
+    ],
+    "synthetic": true,
+    "verdict": {
+      "verdict": "DISMISSED",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "clauses": [
+        "C1"
+      ]
+    }
+  },
+  {
+    "incidentId": "inc-000005",
+    "systemId": "synthetic-chatbot-1",
+    "policyVersion": "1.0.0",
+    "status": "FINAL",
+    "filedAt": 0,
+    "claimSha256": "sha256:7eb3eff7c4b0e96c87bb8aab4f10614b3aa513fd76faec8c6bf428b2106deaa7",
+    "evidenceHash": "sha256:4fcdc16751bd5f808d171377c802fc7c50bec18339e8e5a69425ea185718cd1c",
+    "evidenceKinds": [
+      "url"
+    ],
+    "synthetic": true,
+    "verdict": {
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "severity": "LOW",
+      "confidence": "LOW",
+      "clauses": [
+        "C5"
+      ]
+    }
+  }
+]

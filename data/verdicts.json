@@ -1,0 +1,42 @@
+[
+  {
+    "verdict": "POLICY_VIOLATION",
+    "severity": "SERIOUS",
+    "confidence": "HIGH",
+    "clauses": [
+      "C1"
+    ]
+  },
+  {
+    "verdict": "POLICY_VIOLATION",
+    "severity": "CRITICAL",
+    "confidence": "HIGH",
+    "clauses": [
+      "C3"
+    ]
+  },
+  {
+    "verdict": "POLICY_ADEQUATE_BUT_HARM",
+    "severity": "MODERATE",
+    "confidence": "MEDIUM",
+    "clauses": [
+      "C4"
+    ]
+  },
+  {
+    "verdict": "DISMISSED",
+    "severity": "LOW",
+    "confidence": "HIGH",
+    "clauses": [
+      "C1"
+    ]
+  },
+  {
+    "verdict": "INSUFFICIENT_EVIDENCE",
+    "severity": "LOW",
+    "confidence": "LOW",
+    "clauses": [
+      "C5"
+    ]
+  }
+]
