@@ -1,7 +1,6 @@
 ---
 "@safetynet/cli": minor
 "@safetynet/core": minor
-"web": patch
 ---
 
 feat(DEP-020..024): registry-backed deployment verification

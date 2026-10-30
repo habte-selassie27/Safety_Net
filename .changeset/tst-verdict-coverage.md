@@ -1,5 +1,5 @@
 ---
-"safetynet-test": patch
+"@safetynet/cli": patch
 ---
 
 feat(TST-034): report committed verdict coverage after simulator tests

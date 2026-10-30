@@ -1,6 +1,5 @@
 ---
 "@safetynet/cli": minor
-"safetynet-lint": minor
 ---
 
 feat(CLI-015): add static contract profile reports
